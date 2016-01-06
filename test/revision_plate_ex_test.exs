@@ -15,14 +15,43 @@ defmodule RevisionPlateExTest do
     assert modules == [RevisionPlateEx.Router]
   end
 
-  test "hello" do
+  test "find REVISION file and return hello with get" do
+    File.write "REVISION", "hello"
+
     conn = conn(:get, "/hello/revision")
            |> RevisionPlateEx.Router.call([])
     assert conn.status == 200
     assert conn.resp_body == "hello"
+
+    File.rm "REVISION"
   end
 
-  # TODO:
-  # 1. read REVISION file
-  # 2. return 404 not found if revision file doesn't exist
+  test "not found REVISION file with get" do
+    File.rm "REVISION"
+
+    conn = conn(:get, "/hello/revision")
+           |> RevisionPlateEx.Router.call([])
+    assert conn.status == 404
+    assert conn.resp_body == "not found REVISON file"
+  end
+
+  test "find REVISION file and return hello with head" do
+    File.write "REVISION", "hello"
+
+    conn = conn(:head, "/hello/revision")
+           |> RevisionPlateEx.Router.call([])
+    assert conn.status == 200
+    assert conn.resp_body == ""
+
+    File.rm "REVISION"
+  end
+
+  test "not found REVISION file with head" do
+    File.rm "REVISION"
+
+    conn = conn(:head, "/hello/revision")
+           |> RevisionPlateEx.Router.call([])
+    assert conn.status == 404
+    assert conn.resp_body == ""
+  end
 end

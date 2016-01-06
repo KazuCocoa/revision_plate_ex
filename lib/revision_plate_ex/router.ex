@@ -5,6 +5,8 @@ defmodule RevisionPlateEx.Router do
   use Plug.Router
   alias RevisionPlateEx.Router
 
+  @revision_file "REVISION"
+
   if Mix.env == :dev do
     use Plug.Debugger
   end
@@ -16,7 +18,7 @@ defmodule RevisionPlateEx.Router do
     Plug.Adapters.Cowboy.http(__MODULE__, [], [port: port])
   end
 
-  match "/hello/revision", via: :get do
+  match "/hello/revision", via: [:get, :head] do
     {status, message} = revision
     conn
     |> put_resp_content_type("text/plain")
@@ -24,6 +26,11 @@ defmodule RevisionPlateEx.Router do
   end
 
   defp revision do
-    {200, "hello"}
+    case File.read(@revision_file) do
+      {:ok, message} ->
+        {200, message}
+      {:error, _} ->
+        {404, "not found REVISON file"}
+    end
   end
 end
