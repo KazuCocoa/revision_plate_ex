@@ -26,11 +26,15 @@ defmodule RevisionPlateEx.Router do
   end
 
   defp revision do
-    case File.read(@revision_file) do
+    case File.read(revision_file) do
       {:ok, message} ->
         {200, message}
       {:error, _} ->
         {404, "not found REVISON file"}
     end
+  end
+
+  defp revision_file do
+    Application.get_env :revision_plate_ex, :file_path, @revision_file
   end
 end
