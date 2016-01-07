@@ -1,6 +1,7 @@
 defmodule RevisionPlateEx do
   @moduledoc """
-  Return REVISON
+  Define RevisionPlateEx.
+  This module have `start` if `:revision_plate_ex` is defined in `MyApp.Mixfile.application`.
   """
   use Application
 

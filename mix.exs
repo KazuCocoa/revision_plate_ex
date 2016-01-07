@@ -2,17 +2,20 @@ defmodule RevisionPlateEx.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :revision_plate_ex,
-     version: "0.0.1",
-     elixir: "~> 1.0",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+    [
+      app: :revision_plate_ex,
+      version: "0.1.0",
+      elixir: "~> 1.0",
+      name: "RevisionPlateEx",
+      source_url: "https://github.com/KazuCocoa/revision_plate_ex",
+      description: "Plug application and middleware that serves endpoint returns application's REVISION",
+      build_embedded: Mix.env == :prod,
+      start_permanent: Mix.env == :prod,
+      deps: deps,
+      package: package
+   ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
     [
       applications: [:cowboy, :plug],
@@ -20,19 +23,19 @@ defmodule RevisionPlateEx.Mixfile do
     ]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
     [
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 1.0"}
+    ]
+  end
+
+  defp package do
+    [
+      files: ~w(lib mix.exs README.md LICENSE),
+      maintainers: ["Kazuaki Matsuo"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/KazuCocoa/revision_plate_ex"}
     ]
   end
 end
