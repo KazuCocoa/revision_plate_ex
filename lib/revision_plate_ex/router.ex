@@ -19,6 +19,10 @@ defmodule RevisionPlateEx.Router do
   end
 
   match "/hello/revision", via: [:get, :head] do
+    hello conn
+  end
+
+  def hello(conn) do
     {status, message} = revision
     conn
     |> put_resp_content_type("text/plain")
