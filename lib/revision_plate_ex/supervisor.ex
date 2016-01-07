@@ -1,7 +1,6 @@
 defmodule RevisionPlateEx.Supervisor do
-  @moduledoc """
-  Return REVISON
-  """
+  @moduledoc false
+
   use Supervisor
   alias RevisionPlateEx.Router
 
