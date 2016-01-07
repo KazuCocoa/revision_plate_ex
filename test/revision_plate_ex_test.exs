@@ -33,7 +33,7 @@ defmodule RevisionPlateExTest do
     conn = conn(:get, "/hello/revision")
            |> Router.call([])
     assert conn.status == 404
-    assert conn.resp_body == "not found REVISON file"
+    assert conn.resp_body == "not found REVISION file"
   end
 
   test "find REVISION file and return hello with head" do
