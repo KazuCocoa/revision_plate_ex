@@ -1,10 +1,10 @@
 defmodule RevisionPlateExTest do
-  use ExUnit.Case
+  use ShouldI
   use Plug.Test
 
   alias RevisionPlateEx.Router
 
-  test "subversion tree" do
+  should "subversion tree" do
     pid = Process.whereis RevisionPlateEx.Supervisor
     assert is_pid(pid) == true
 
@@ -16,47 +16,50 @@ defmodule RevisionPlateExTest do
     assert modules == [Router]
   end
 
-  test "find REVISION file and return hello with get" do
-    File.write "REVISION", "hello"
+  having "with finding REVISION" do
+    setup do
+      File.write "REVISION", "hello"
+      on_exit fn -> File.rm "REVISION" end
+      :ok
+    end
 
-    conn = conn(:get, "/hello/revision")
-           |> Router.call([])
-    assert conn.status == 200
-    assert conn.resp_body == "hello"
+    test "return hello with get" do
+      conn = conn(:get, "/hello/revision")
+             |> Router.call([])
+      assert conn.status == 200
+      assert conn.resp_body == "hello"
+    end
 
-    File.rm "REVISION"
+    test "no body with head" do
+      conn = conn(:head, "/hello/revision")
+             |> Router.call([])
+      assert conn.status == 200
+      assert conn.resp_body == ""
+    end
   end
 
-  test "not found REVISION file with get" do
-    File.rm "REVISION"
+  having "with finding no REVISION" do
+    setup do
+      File.rm "REVISION"
+      :ok
+    end
 
-    conn = conn(:get, "/hello/revision")
-           |> Router.call([])
-    assert conn.status == 404
-    assert conn.resp_body == "not found REVISION file"
+    test "not found with get" do
+      conn = conn(:get, "/hello/revision")
+             |> Router.call([])
+      assert conn.status == 404
+      assert conn.resp_body == "not found REVISION file"
+    end
+
+    test "not found with head" do
+      conn = conn(:head, "/hello/revision")
+             |> Router.call([])
+      assert conn.status == 404
+      assert conn.resp_body == ""
+    end
   end
 
-  test "find REVISION file and return hello with head" do
-    File.write "REVISION", "hello"
-
-    conn = conn(:head, "/hello/revision")
-           |> Router.call([])
-    assert conn.status == 200
-    assert conn.resp_body == ""
-
-    File.rm "REVISION"
-  end
-
-  test "not found REVISION file with head" do
-    File.rm "REVISION"
-
-    conn = conn(:head, "/hello/revision")
-           |> Router.call([])
-    assert conn.status == 404
-    assert conn.resp_body == ""
-  end
-
-  test "find REVISION file with custom path and return hello with get" do
+  should "find REVISION file with custom path and return hello with get" do
     custom_file = "CUSTOM_FILE"
     Application.put_env :revision_plate_ex, :file_path, custom_file
     File.write custom_file, "custom hello"
