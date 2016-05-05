@@ -1,8 +1,12 @@
+[![](https://img.shields.io/hexpm/v/revision_plate_ex.svg?style=flat)](https://hex.pm/packages/revision_plate_ex)
+
 # RevisionPlateEx
 
 Plug application and middleware that serves endpoint returns application's REVISION.
 
 See also [revision_plate](https://github.com/sorah/revision_plate) which is implemented with Ruby.
+
+Document is [here](http://hexdocs.pm/revision_plate_ex/api-reference.html).
 
 ## Quick use as standalone
 
