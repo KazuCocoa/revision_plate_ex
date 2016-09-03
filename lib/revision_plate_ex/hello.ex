@@ -46,7 +46,7 @@ defmodule RevisionPlateEx.Hello do
   """
   @spec revision(conn) :: conn
   def revision(conn) do
-    {status, message} = read_revision
+    {status, message} = read_revision()
     conn
     |> put_resp_content_type("text/plain")
     |> send_resp(status, message)
