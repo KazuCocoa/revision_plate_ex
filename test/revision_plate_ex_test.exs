@@ -1,10 +1,10 @@
 defmodule RevisionPlateExTest do
-  use ShouldI
+  use ExUnit.Case, async: true
   use Plug.Test
 
   alias RevisionPlateEx.Router
 
-  should "subversion tree" do
+  test "subversion tree" do
     pid = Process.whereis RevisionPlateEx.Supervisor
     assert is_pid(pid) == true
 
@@ -16,7 +16,7 @@ defmodule RevisionPlateExTest do
     assert modules == [Router]
   end
 
-  having "with finding REVISION" do
+  describe "with finding REVISION" do
     setup do
       File.write "REVISION", "hello"
       on_exit fn -> File.rm "REVISION" end
@@ -38,7 +38,7 @@ defmodule RevisionPlateExTest do
     end
   end
 
-  having "with finding no REVISION" do
+  describe "with finding no REVISION" do
     setup do
       File.rm "REVISION"
       :ok
@@ -59,7 +59,7 @@ defmodule RevisionPlateExTest do
     end
   end
 
-  should "find REVISION file with custom path and return hello with get" do
+  test "find REVISION file with custom path and return hello with get" do
     custom_file = "CUSTOM_FILE"
     Application.put_env :revision_plate_ex, :file_path, custom_file
     File.write custom_file, "custom hello"

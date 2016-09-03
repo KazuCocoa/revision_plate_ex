@@ -5,7 +5,7 @@ defmodule RevisionPlateEx.Mixfile do
     [
       app: :revision_plate_ex,
       version: "0.1.0",
-      elixir: "~> 1.0",
+      elixir: "~> 1.3",
       name: "RevisionPlateEx",
       source_url: "https://github.com/KazuCocoa/revision_plate_ex",
       description: "Plug application and middleware that serves endpoint returns application's REVISION",
@@ -28,8 +28,7 @@ defmodule RevisionPlateEx.Mixfile do
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 1.0"},
       {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.10", only: :dev},
-      {:shouldi, github: "batate/shouldi", only: :test}
+      {:ex_doc, "~> 0.10", only: :dev}
     ]
   end
 
