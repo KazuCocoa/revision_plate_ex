@@ -1,4 +1,5 @@
 [![](https://img.shields.io/hexpm/v/revision_plate_ex.svg?style=flat)](https://hex.pm/packages/revision_plate_ex)
+[![Build Status](https://travis-ci.org/KazuCocoa/revision_plate_ex.svg?branch=support_over_elixir_13)](https://travis-ci.org/KazuCocoa/revision_plate_ex)
 
 # RevisionPlateEx
 
