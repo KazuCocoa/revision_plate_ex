@@ -13,7 +13,7 @@ Document is [here](http://hexdocs.pm/revision_plate_ex/api-reference.html).
   1. Add revision_plate_ex to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:revision_plate_ex, "~> 0.1.0"}]
+          [{:revision_plate_ex, "~> 0.2.0"}]
         end
 
   2. Ensure revision_plate_ex is started before your application:
