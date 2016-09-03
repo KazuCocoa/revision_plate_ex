@@ -9,7 +9,11 @@ See also [revision_plate](https://github.com/sorah/revision_plate) which is impl
 
 Document is [here](http://hexdocs.pm/revision_plate_ex/api-reference.html).
 
-## Quick use as standalone
+## Requirement
+
+Elixir ~> 1.3
+
+## Quick use as standalone server
 
   1. Add revision_plate_ex to your list of dependencies in `mix.exs`:
 
@@ -29,7 +33,7 @@ Document is [here](http://hexdocs.pm/revision_plate_ex/api-reference.html).
 
 ## Use with Phoenix
 
-  Read document associated with `RevisionPlateEx.Hello.revision/1`
+Read document associated with `RevisionPlateEx.Hello.revision/1`
 
 ## Configurations
 
