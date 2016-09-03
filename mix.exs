@@ -34,7 +34,7 @@ defmodule RevisionPlateEx.Mixfile do
 
   defp package do
     [
-      files: ~w(lib mix.exs README.md LICENSE),
+      files: ~w(lib mix.exs README.md CHANGELOG.md LICENSE),
       maintainers: ["Kazuaki Matsuo"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/KazuCocoa/revision_plate_ex"}
