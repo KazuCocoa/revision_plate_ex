@@ -39,8 +39,6 @@ defmodule RevisionPlateEx.Router do
   use Plug.Router
   alias RevisionPlateEx.Hello
 
-  @revision_file "REVISION"
-
   if Mix.env == :dev do
     use Plug.Debugger
   end

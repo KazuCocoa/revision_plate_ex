@@ -11,8 +11,8 @@ defmodule RevisionPlateEx.Mixfile do
       description: "Plug application and middleware that serves endpoint returns application's REVISION",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      deps: deps,
-      package: package
+      deps: deps(),
+      package: package()
    ]
   end
 

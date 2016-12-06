@@ -53,7 +53,7 @@ defmodule RevisionPlateEx.Hello do
   end
 
   defp read_revision do
-    case File.read(revision_file) do
+    case File.read(revision_file()) do
       {:ok, message} ->
         {200, message}
       {:error, _} ->
