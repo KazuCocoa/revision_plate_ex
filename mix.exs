@@ -4,7 +4,7 @@ defmodule RevisionPlateEx.Mixfile do
   def project do
     [
       app: :revision_plate_ex,
-      version: "0.2.0",
+      version: "0.2.1",
       elixir: "~> 1.3",
       name: "RevisionPlateEx",
       source_url: "https://github.com/KazuCocoa/revision_plate_ex",
