@@ -1,4 +1,7 @@
 # Changelogs
+## 0.3.0
+- Drop Elixir 1.3
+
 ## 0.2.0
 - Require Elixir ~> 1.3
 - Remove shouldi for test

@@ -11,14 +11,14 @@ Document is [here](http://hexdocs.pm/revision_plate_ex/api-reference.html).
 
 ## Requirement
 
-Elixir ~> 1.3
+Elixir ~> 1.4
 
 ## Quick use as standalone server
 
   1. Add revision_plate_ex to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:revision_plate_ex, "~> 0.2.0"}]
+          [{:revision_plate_ex, "~> 0.3.0"}]
         end
 
   2. Ensure revision_plate_ex is started before your application:
