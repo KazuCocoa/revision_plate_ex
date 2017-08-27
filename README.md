@@ -16,16 +16,18 @@ Elixir ~> 1.4
 ## Quick use as standalone server
 
   1. Add revision_plate_ex to your list of dependencies in `mix.exs`:
-
+  ```elixir
         def deps do
-          [{:revision_plate_ex, "~> 0.3.0"}]
+          [{:revision_plate_ex, "~> 0.3.1"}]
         end
+  ```
 
   2. Ensure revision_plate_ex is started before your application:
-
+  ```elixir
         def application do
           [applications: [:revision_plate_ex]]
         end
+  ```
 
   3. Create `REVISION` file in root path.
   4. Start application

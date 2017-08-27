@@ -4,7 +4,7 @@ defmodule RevisionPlateEx.Mixfile do
   def project do
     [
       app: :revision_plate_ex,
-      version: "0.3.0",
+      version: "0.3.1",
       elixir: "~> 1.4",
       name: "RevisionPlateEx",
       source_url: "https://github.com/KazuCocoa/revision_plate_ex",
@@ -25,8 +25,8 @@ defmodule RevisionPlateEx.Mixfile do
 
   defp deps do
     [
-      {:cowboy, "~> 1.0.0"},
-      {:plug, "~> 1.0"},
+      {:cowboy, "~> 1.1"},
+      {:plug, "~> 1.4"},
       {:earmark, "~> 1.0", only: :dev},
       {:ex_doc, "~> 0.10", only: :dev}
     ]
