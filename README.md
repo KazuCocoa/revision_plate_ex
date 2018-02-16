@@ -18,7 +18,7 @@ Elixir ~> 1.4
   1. Add revision_plate_ex to your list of dependencies in `mix.exs`:
   ```elixir
         def deps do
-          [{:revision_plate_ex, "~> 0.3.1"}]
+          [{:revision_plate_ex, "~> 0.4.0"}]
         end
   ```
 

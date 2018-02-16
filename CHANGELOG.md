@@ -1,5 +1,8 @@
 # Changelogs
-## 0.3.0
+## 0.4.0
+- Support Elixir 1.6+ and Drop 1.5 and 1.4
+
+## 0.3.1
 - Update plug and cowboy
 
 ## 0.3.0
