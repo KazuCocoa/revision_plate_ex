@@ -11,10 +11,13 @@ defmodule RevisionPlateEx.Supervisor do
     port = to_port(Application.get_env(:revision_plate_ex, :http_port, 4000))
 
     children = [
-      worker(Router, [port], [])
+      %{
+        id: Router,
+        start: {Router, :start_link, [port]}
+      }
     ]
 
-    supervise children, strategy: :one_for_one
+    Supervisor.init children, strategy: :one_for_one
   end
 
   defp to_port(binary) when is_binary(binary), do: String.to_integer binary
