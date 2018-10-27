@@ -39,19 +39,19 @@ defmodule RevisionPlateEx.Router do
   use Plug.Router
   alias RevisionPlateEx.Hello
 
-  if Mix.env == :dev do
+  if Mix.env() == :dev do
     use Plug.Debugger
   end
 
-  plug :match
-  plug :dispatch
+  plug(:match)
+  plug(:dispatch)
 
   @spec start_link(integer) :: {:ok, pid}
   def start_link(port) do
-    Plug.Adapters.Cowboy.http(__MODULE__, [], [port: port])
+    Plug.Adapters.Cowboy.http(__MODULE__, [], port: port)
   end
 
   match "/hello/revision", via: [:get, :head] do
-    Hello.revision conn
+    Hello.revision(conn)
   end
 end
