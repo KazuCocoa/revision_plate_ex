@@ -25,8 +25,7 @@ defmodule RevisionPlateEx.Mixfile do
 
   defp deps do
     [
-      {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.4"},
+      {:plug_cowboy, "~> 2.0"},
       {:earmark, "~> 1.0", only: :dev, runtime: false},
       {:ex_doc, "~> 0.10", only: :dev, runtime: false}
     ]

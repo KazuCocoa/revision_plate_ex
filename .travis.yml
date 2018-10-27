@@ -1,9 +1,10 @@
 language: elixir
 
-otp_release:
-  - 20.0
-
-elixir:
-  - 1.6
+matrix:
+  include:
+    - elixir: '1.6'
+      opt_release: '20.0'
+    - elixir: '1.7'
+      opt_release: '21.0'
 
 sudo: false
