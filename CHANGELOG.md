@@ -1,4 +1,7 @@
 # Changelogs
+## 0.4.1
+- Bump plug
+
 ## 0.4.0
 - Support Elixir 1.6+ and Drop 1.5 and 1.4
 
